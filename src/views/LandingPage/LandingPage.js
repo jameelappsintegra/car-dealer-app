@@ -1,10 +1,6 @@
-import React from "react";
-// nodejs library that concatenates classes
-import classNames from "classnames";
-// @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
-
-// @material-ui/icons
+import React from "react"; // nodejs library that concatenates classes
+import classNames from "classnames"; // @material-ui/core components
+import { makeStyles } from "@material-ui/core/styles";// @material-ui/icons
 
 // core components
 import Header from "components/Header/Header.js";
@@ -18,8 +14,8 @@ import Parallax from "components/Parallax/Parallax.js";
 import styles from "assets/jss/material-kit-react/views/landingPage.js";
 
 // Sections for this page
-import ProductSection from "./Sections/ProductSection.js";
-import TeamSection from "./Sections/TeamSection.js";
+// import ProductSection from "./Sections/ProductSection.js";
+// import TeamSection from "./Sections/TeamSection.js";
 import CreateCarSection from "./Sections/CreateCarSection.js";
 
 const dashboardRoutes = [];

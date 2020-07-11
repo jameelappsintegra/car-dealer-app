@@ -31,16 +31,16 @@ export default function CreateCarSection() {
     <div className={classes.section}>
       <h2 className={classes.title}>Cars List</h2>
       <GridContainer>
-        ${carData && carData .map(item => (
+        {carData && carData.map(item => (
 
-          <GridItem xs={12} sm={12} md={6}>
-          <h4 className={classes.title}>${item.title}</h4>
-          <img
+          <GridItem xs={12} sm={6} md={4}>
+          <h4 className={classes.title}>{item.title}</h4>
+          <photo
             src="https://demos.creative-tim.com/material-kit/assets/img/faces/avatar.jpg"
             alt="Rounded Image"
             class="rounded img-fluid"
             />
-            <p>${item.year}</p>
+            <p>{item.year}</p>
         </GridItem>)
         )}
         
