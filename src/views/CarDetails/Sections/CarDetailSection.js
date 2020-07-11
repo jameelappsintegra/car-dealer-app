@@ -1,4 +1,5 @@
 import React from "react";
+
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -10,32 +11,21 @@ import GridItem from "components/Grid/GridItem.js";
 
 import styles from "assets/jss/material-kit-react/views/landingPageSections/workStyle.js";
 
+
 const useStyles = makeStyles(styles);
 
-export default function CreateCarSection() {
+export default function CarDetailSection(props) {
   const classes = useStyles();
-  const carDetailsList = [
-    {
-      title: "The Shawshank Redemption",
-      year: 1994,
-      transmition: "automatic",
-      exterior: "black",
-      interior: "white",
-      price: "10,000",
-      photo:
-        "https://demos.creative-tim.com/material-kit/assets/img/faces/avatar.jpg",
-    },
-  ]
+  const {vehicleData} = props;
+  
   return (
     <div className={classes.section}>
       <h2 className={classes.title}>Cars List</h2>
       <GridContainer direction="row" justify="flex-start" alignItems="center">
-        {carDetailsList &&
-          carDetailsList.map((item) => (
-            <GridItem xs={12} sm={6} md={4}>
-              <h4 className={classes.title}>{item.title}</h4>
+        <GridItem xs={12} sm={6} md={4}>
+              <h4 className={classes.title}>{vehicleData.name}</h4>
               <img
-                src={item.photo}
+                src={vehicleData.photo}
                 alt="Rounded Image"
                 className={classes.carListImage}
               />
@@ -44,8 +34,8 @@ export default function CreateCarSection() {
                 justify="flex-start"
                 alignItems="center"
               >
-                <GridItem xs={12} sm={6} md={6} className={classes.description}>Year : {item.year} </GridItem>
-                <GridItem xs={12} sm={6} md={6}vclassName={classes.description}>transmition : {item.transmition} </GridItem>
+                <GridItem xs={12} sm={6} md={6} className={classes.description}>Year : {vehicleData.engine} </GridItem>
+                <GridItem xs={12} sm={6} md={6} className={classes.description}>transmition : {vehicleData.transmition} </GridItem>
               </GridContainer>
               <GridContainer
                 direction="row"
@@ -53,15 +43,14 @@ export default function CreateCarSection() {
                 alignItems="center"
               >
                 <GridItem xs={12} sm={6} md={6} className={classes.description}>
-                  Color Exterior : {item.exterior}
+                  Color Exterior : {vehicleData.color_exterior}
                 </GridItem>
                 <GridItem xs={12} sm={6} md={6} className={classes.description}>
-                  Color Interior : {item.interior}
+                  Color Interior : {vehicleData.color_interior}
                 </GridItem>
               </GridContainer>
-              <p className={classes.price}>{item.price} AED</p>
+              <p className={classes.price}>{vehicleData.price} AED</p>
             </GridItem>
-          ))}
       </GridContainer>
     </div>
   );

@@ -92,7 +92,7 @@ const handleLoginFormSubmit = async (event) =>{
  
    if(User){
    
-     history.push("/landing-page");
+     history.push("/create-vehicle");
    }
 }
   return (

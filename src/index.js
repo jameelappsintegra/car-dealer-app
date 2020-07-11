@@ -8,9 +8,7 @@ import { ApolloProvider } from "@apollo/react-hooks";
 import "assets/scss/material-kit-react.scss?v=1.9.0";
 
 // pages for this product
-// import Components from "views/Components/Components.js";
 import LandingPage from "views/LandingPage/LandingPage.js";
-import ProfilePage from "views/ProfilePage/ProfilePage.js";
 import CarList from "views/CarList/CarList.js";
 import CarDetails from "views/CarDetails/CarDetails.js";
 import LoginPage from "views/LoginPage/LoginPage.js";
@@ -28,10 +26,9 @@ ReactDOM.render(
   <ApolloProvider client={client}>
     <Router history={hist}>
       <Switch>
-        <Route path="/landing-page" component={LandingPage} />
-        <Route path="/profile-page" component={ProfilePage} />
+        <Route path="/create-vehicle" component={LandingPage} />
         <Route path="/car-list" component={CarList} />
-        <Route path="/car-details" component={CarDetails} />
+        <Route path="/car-details/:vehicleId" component={CarDetails} />
         <Route path="/login-page" component={LoginPage} />
         <Route path="/" component={LoginPage} />
       </Switch>

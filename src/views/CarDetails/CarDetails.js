@@ -1,4 +1,9 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+import { useParams } from "react-router-dom";
+import { useQuery } from "@apollo/react-hooks";
+
+import {GET_VEHICLE} from './graphql';
+
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // @material-ui/core components
@@ -21,6 +26,16 @@ const useStyles = makeStyles(styles);
 
 export default function CarDetails(props) {
   const classes = useStyles();
+  const { vehicleId } = useParams();
+  const { data: vehicleData } = useQuery(GET_VEHICLE, { variables: { id: vehicleId } } );
+  const [vehicle, setVehicle] = useState({});
+  
+  useEffect(() => {
+    if (vehicleData) {
+      setVehicle(vehicleData.Vehicle[0]);
+    }
+  }, [vehicleData]);
+  
   const { ...rest } = props;
   return (
     <div>
@@ -39,7 +54,7 @@ export default function CarDetails(props) {
       <Parallax filter image={require("assets/img/landing-bg.jpg")}></Parallax>
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div className={classes.container}>
-          <CarDetailSection />
+          <CarDetailSection vehicleData={vehicle} />
         </div>
       </div>
       <Footer />
