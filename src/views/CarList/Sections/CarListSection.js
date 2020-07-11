@@ -125,7 +125,7 @@ export default function CreateCarSection() {
                 alignItems="center"
               >
                 <GridItem xs={12} sm={6} md={6} className={classes.description}>Year : {item.year} </GridItem>
-                <GridItem xs={12} sm={6} md={6}vclassName={classes.description}>transmition : {item.transmition} </GridItem>
+                <GridItem xs={12} sm={6} md={6} className={classes.description}>transmition : {item.transmition} </GridItem>
               </GridContainer>
               <GridContainer
                 direction="row"
