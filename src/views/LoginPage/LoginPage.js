@@ -89,7 +89,7 @@ const createNew = async (payload) => {
 /* Login Action Items */
 const handleLoginFormSubmit = async (event) =>{
   event.preventDefault();
-  console.log(User)
+ 
    if(User){
    
      history.push("/landing-page");
