@@ -100,7 +100,7 @@ const handleLoginFormSubmit = async (event) =>{
       <Header
         absolute
         color="transparent"
-        brand="Material Kit React"
+        brand="Car Application"
         rightLinks={<HeaderLinks />}
         {...rest}
       />
@@ -109,7 +109,7 @@ const handleLoginFormSubmit = async (event) =>{
         style={{
           backgroundImage: "url(" + image + ")",
           backgroundSize: "cover",
-          backgroundPosition: "top center"
+          backgroundPosition: "top center",
         }}
       >
         <div className={classes.container}>
@@ -119,18 +119,15 @@ const handleLoginFormSubmit = async (event) =>{
                 <form className={classes.form} onSubmit={handleLoginFormSubmit}>
                   <CardHeader color="primary" className={classes.cardHeader}>
                     <h4>Login</h4>
-                   
-                  </CardHeader>                  
+                  </CardHeader>
                   <CardBody>
-                    
                     <CustomInput
                       labelText="Email..."
                       id="loginEmail"
-                      
                       formControlProps={{
                         fullWidth: true,
                         value: values.email,
-                        onChange: handleCredentialsChange('email')
+                        onChange: handleCredentialsChange("email"),
                       }}
                       inputProps={{
                         type: "email",
@@ -138,16 +135,16 @@ const handleLoginFormSubmit = async (event) =>{
                           <InputAdornment position="end">
                             <Email className={classes.inputIconsColor} />
                           </InputAdornment>
-                        )
+                        ),
                       }}
                     />
                     <CustomInput
                       labelText="Password"
-                      id="loginPass"                  
+                      id="loginPass"
                       formControlProps={{
                         fullWidth: true,
                         value: credentials.password,
-                        onChange: handleCredentialsChange('password')
+                        onChange: handleCredentialsChange("password"),
                       }}
                       inputProps={{
                         type: "password",
@@ -158,7 +155,7 @@ const handleLoginFormSubmit = async (event) =>{
                             </Icon>
                           </InputAdornment>
                         ),
-                        autoComplete: "off"
+                        autoComplete: "off",
                       }}
                     />
                   </CardBody>
@@ -175,17 +172,15 @@ const handleLoginFormSubmit = async (event) =>{
                 <form className={classes.form} onSubmit={handleFormSubmit}>
                   <CardHeader color="primary" className={classes.cardHeader}>
                     <h4>Create New Account</h4>
-                   
-                  </CardHeader>                  
+                  </CardHeader>
                   <CardBody>
                     <CustomInput
                       labelText="First Name..."
-                      id="first"                      
+                      id="first"
                       formControlProps={{
                         fullWidth: true,
                         value: values.name,
-                        onChange: handleChange('name')
-
+                        onChange: handleChange("name"),
                       }}
                       inputProps={{
                         type: "text",
@@ -193,17 +188,16 @@ const handleLoginFormSubmit = async (event) =>{
                           <InputAdornment position="end">
                             <People className={classes.inputIconsColor} />
                           </InputAdornment>
-                        )
+                        ),
                       }}
                     />
                     <CustomInput
                       labelText="Email..."
                       id="email"
-                      
                       formControlProps={{
                         fullWidth: true,
                         value: values.email,
-                        onChange: handleChange('email')
+                        onChange: handleChange("email"),
                       }}
                       inputProps={{
                         type: "email",
@@ -211,18 +205,18 @@ const handleLoginFormSubmit = async (event) =>{
                           <InputAdornment position="end">
                             <Email className={classes.inputIconsColor} />
                           </InputAdornment>
-                        )
+                        ),
                       }}
                     />
                     <CustomInput
                       labelText="Password"
                       id="pass"
                       value={values.password}
-                      onChange={handleChange('password')}
+                      onChange={handleChange("password")}
                       formControlProps={{
                         fullWidth: true,
                         value: values.password,
-                        onChange: handleChange('password')
+                        onChange: handleChange("password"),
                       }}
                       inputProps={{
                         type: "password",
@@ -233,7 +227,7 @@ const handleLoginFormSubmit = async (event) =>{
                             </Icon>
                           </InputAdornment>
                         ),
-                        autoComplete: "off"
+                        autoComplete: "off",
                       }}
                     />
                   </CardBody>
