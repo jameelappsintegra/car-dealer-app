@@ -30,8 +30,8 @@ export default function CreateCarSection() {
     <div className={classes.section}>
       <h2 className={classes.title}>Cars List</h2>
       <GridContainer direction="row" justify="flex-start" alignItems="center">
-        {carData &&
-          carData.map((item) => (
+        {carDetailsList &&
+          carDetailsList.map((item) => (
             <GridItem xs={12} sm={6} md={4}>
               <h4 className={classes.title}>{item.title}</h4>
               <img
