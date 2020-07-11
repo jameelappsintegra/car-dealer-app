@@ -19,7 +19,7 @@ const dashboardRoutes = [];
 
 const useStyles = makeStyles(styles);
 
-export default function CarList(props) {
+export default function CarDetails(props) {
   const classes = useStyles();
   const { ...rest } = props;
   return (
