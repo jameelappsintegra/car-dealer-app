@@ -27,7 +27,7 @@ export default function CarList(props) {
       <Header
         color="transparent"
         routes={dashboardRoutes}
-        brand="Material Kit React"
+        brand="Car Application"
         rightLinks={<HeaderLinks />}
         fixed
         changeColorOnScroll={{
