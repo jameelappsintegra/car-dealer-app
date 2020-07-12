@@ -39,6 +39,7 @@ export default function CarDetails(props) {
   const { ...rest } = props;
   return (
     <div>
+
       <Header
         color="transparent"
         routes={dashboardRoutes}

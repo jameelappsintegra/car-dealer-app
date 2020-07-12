@@ -13,6 +13,8 @@ export const GET_ALL_VEHICLE = gql`
     fuel_type
     engine
     id
+    year
+    engine
     color_interior
     color_exterior
   }
