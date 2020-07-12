@@ -14,7 +14,7 @@ const workStyle = {
   },
   description: {
     color: "#999",
-    textAlign: "center",
+    // textAlign: "center",
   },
   textCenter: {
     textAlign: "center",
@@ -26,10 +26,17 @@ const workStyle = {
   carListImage: {
     width: "100%",
   },
-  price:{
-    color: '#000',
-    fontSize:'16px'
-  }
+  price: {
+    color: "#000",
+    fontSize: "16px",
+  },
+  carList: {
+    minHeight: "500px",
+    alignItems: "stretch",
+    justifyContent: "space-between",
+    display: "flex",
+    flexDirection: "column",
+  },
 };
 
 export default workStyle;

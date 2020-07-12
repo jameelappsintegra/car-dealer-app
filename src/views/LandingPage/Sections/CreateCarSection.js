@@ -24,14 +24,15 @@ export default function CreateCarSection() {
   const classes = useStyles();
   const [vehicleCategory,setVehicleCategory] = React.useState([]);
   const [values, setValues] = React.useState({
-    vehicleImage:'',
-    vehicleName: '',
-    vehicleCategory: '',
-    vehicleTransmission: '',
-    vehicleFuelType: '',
-    vehicleColorExterior: '',
-    vehicleColorInterior: '',
-
+    vehicleImage: "",
+    vehicleName: "",
+    vehicleCategory: "",
+    vehicleTransmission: "",
+    vehicleFuelType: "",
+    vehicleColorExterior: "",
+    vehicleColorInterior: "",
+    vehiclePrice:"",
+    vehicleYear:""
   });
   const { data: vehicleCategoryData } = useQuery(GET_VEHICLE_CATEGORY);
   const [createNewVehicle] = useMutation(INSERT_VEHICLE);
@@ -68,14 +69,16 @@ export default function CreateCarSection() {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     const result = await createVehicle({
-    name: values.vehicleName,
-    photo: values.vehicleImage,
-    transmission: values.vehicleTransmission,
-    fuel_type: values.vehicleFuelType,
-    color_interior: values.vehicleColorInterior,
-    color_exterior: values.vehicleColorExterior,
-    category_id: values.vehicleCategory
-   });
+      name: values.vehicleName,
+      photo: values.vehicleImage,
+      transmission: values.vehicleTransmission,
+      fuel_type: values.vehicleFuelType,
+      color_interior: values.vehicleColorInterior,
+      color_exterior: values.vehicleColorExterior,
+      category_id: values.vehicleCategory,
+      price: values.vehiclePrice,
+      year: values.vehicleYear,
+    });
    
   }
 
@@ -90,28 +93,23 @@ export default function CreateCarSection() {
 
   return (
     <div className={classes.section}>
+      <a href="/car-list">View All Car</a>
       <GridContainer justify="center">
         <GridItem cs={12} sm={12} md={8}>
           <h2 className={classes.title}>Create Vehicle</h2>
-          <h4 className={classes.description}>
-            Divide details about your product or agency work into parts. Write a
-            few lines about each one and contact us about any further
-            collaboration. We will responde get back to you in a couple of
-            hours.
-          </h4>
           <form onSubmit={handleFormSubmit}>
             <GridContainer>
-            <GridItem xs={12} sm={12} md={12}>
+              <GridItem xs={12} sm={12} md={12}>
                 <CustomInput
                   labelText="Vehicle Image"
                   id="vehicleImage"
                   inputProps={{
-                    type: 'file'
+                    type: "file",
                   }}
                   formControlProps={{
                     fullWidth: true,
                     value: values.vehicleName,
-                    onChange: handleFileUpload('vehicleImage')
+                    onChange: handleFileUpload("vehicleImage"),
                   }}
                 />
               </GridItem>
@@ -120,22 +118,20 @@ export default function CreateCarSection() {
                   labelText="Vehicle Name"
                   id="vehicleName"
                   inputProps={{
-                    inputRef: el => setValues.vehicleName = el 
+                    inputRef: (el) => (setValues.vehicleName = el),
                   }}
-         
                   formControlProps={{
                     fullWidth: true,
                     value: values.vehicleName,
-                    onChange: handleInputChange('vehicleName')
+                    onChange: handleInputChange("vehicleName"),
                   }}
                 />
               </GridItem>
               <GridItem xs={12} sm={12} md={6}>
-               
                 <Autocomplete
                   id="vehicleCategory"
-                  className={classes.textArea} 
-                  onChange={handleCategoryChange('vehicleCategory')}
+                  className={classes.textArea}
+                  onChange={handleCategoryChange("vehicleCategory")}
                   options={vehicleCategory}
                   getOptionLabel={(option) => option.name}
                   renderInput={(params) => (
@@ -150,7 +146,27 @@ export default function CreateCarSection() {
                   fullWidth: true,
                   className: classes.textArea,
                   value: values.vehicleTransmission,
-                  onChange: handleInputChange('vehicleTransmission')
+                  onChange: handleInputChange("vehicleTransmission"),
+                }}
+              />
+              <CustomInput
+                labelText="Year"
+                id="Year"
+                formControlProps={{
+                  fullWidth: true,
+                  className: classes.textArea,
+                  value: values.vehicleTransmission,
+                  onChange: handleInputChange("vehicleYear"),
+                }}
+              />
+              <CustomInput
+                labelText="Price"
+                id="Transmission"
+                formControlProps={{
+                  fullWidth: true,
+                  className: classes.textArea,
+                  value: values.vehicleTransmission,
+                  onChange: handleInputChange("vehiclePrice"),
                 }}
               />
               <CustomInput
@@ -160,7 +176,7 @@ export default function CreateCarSection() {
                   fullWidth: true,
                   className: classes.textArea,
                   value: values.vehicleFuelType,
-                  onChange: handleInputChange('vehicleFuelType')
+                  onChange: handleInputChange("vehicleFuelType"),
                 }}
               />
               <CustomInput
@@ -170,7 +186,7 @@ export default function CreateCarSection() {
                   fullWidth: true,
                   className: classes.textArea,
                   value: values.vehicleColorExterior,
-                  onChange: handleInputChange('vehicleColorExterior')
+                  onChange: handleInputChange("vehicleColorExterior"),
                 }}
               />
               <CustomInput
@@ -180,11 +196,13 @@ export default function CreateCarSection() {
                   fullWidth: true,
                   className: classes.textArea,
                   value: values.vehicleColorInterior,
-                  onChange: handleInputChange('vehicleColorInterior')
+                  onChange: handleInputChange("vehicleColorInterior"),
                 }}
               />
               <GridItem xs={12} sm={12} md={4}>
-                <Button color="primary" type="submit">Save</Button>
+                <Button color="primary" type="submit">
+                  Save
+                </Button>
               </GridItem>
             </GridContainer>
           </form>

@@ -33,11 +33,12 @@ export default function CreateCarSection() {
 
   return (
     <div className={classes.section}>
-      <h2 className={classes.title}>Cars List</h2>
-      <GridContainer direction="row" justify="flex-start" alignItems="center">
+      <a href="/create-vehicle">View All Car</a>
+      <h2 className={classes.title}>Car List</h2>
+      <GridContainer direction="row" justify="flex-start" >
         {vehicleListItems &&
           vehicleListItems.map((item, i) => (
-            <GridItem key={i} xs={12} sm={6} md={4}>
+            <GridItem key={i} xs={12} sm={6} md={4} className={classes.carList}>
               <h4 className={classes.title}>{item.name}</h4>
               <img
                 src={item.photo}
@@ -49,10 +50,10 @@ export default function CreateCarSection() {
                 justify="flex-start"
                 alignItems="center"
               >
-                <GridItem xs={12} sm={6} md={6} className={classes.description}>
+                <GridItem xs={12} sm={6} md={12} className={classes.description}>
                   Year : {item.engine}{" "}
                 </GridItem>
-                <GridItem xs={12} sm={6} md={6} className={classes.description}>
+                <GridItem xs={12} sm={6} md={12} className={classes.description}>
                   transmition : {item.transmission}{" "}
                 </GridItem>
               </GridContainer>
@@ -61,26 +62,26 @@ export default function CreateCarSection() {
                 justify="flex-start"
                 alignItems="center"
               >
-                <GridItem xs={12} sm={6} md={6} className={classes.description}>
+                <GridItem xs={12} sm={6} md={12} className={classes.description}>
                   Color Exterior : {item.color_exterior}
                 </GridItem>
-                <GridItem xs={12} sm={6} md={6} className={classes.description}>
+                <GridItem xs={12} sm={6} md={12} className={classes.description}>
                   Color Interior : {item.color_interior}
                 </GridItem>
               </GridContainer>
               <p className={classes.price}>{item.price} AED</p>
-           
+
               <Button
                 color="primary"
-                size="lg"               
-                onClick={() => { history.push(`/car-details/${item.id}`); }}
-                
+                size="lg"
+                onClick={() => {
+                  history.push(`/car-details/${item.id}`);
+                }}
                 rel="noopener noreferrer"
               >
-                <i className="fas fa-play" />
                 View Details
-              </Button> 
-              </GridItem>
+              </Button>
+            </GridItem>
           ))}
       </GridContainer>
     </div>
